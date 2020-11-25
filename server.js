@@ -3,6 +3,8 @@ const mongoose = require("mongoose");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
+const routes = require("./routes/api");
+
 
 app.use([
     express.urlencoded({ extended: true }),
@@ -23,12 +25,14 @@ mongoose.connect(
 
 // Link API Routes here
 // Load API Routes 
+app.use(routes);
 
 
+// TODO - Make sure it loads React on port 3001 
 // Load React for All Other Requests
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
-// });
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "./client/public/index.html"));
+});
 
 app.listen(PORT, () => {
   console.log("🚀  Server server now on port", PORT, "👻 React App on Port 3000");

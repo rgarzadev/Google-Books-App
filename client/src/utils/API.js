@@ -1,8 +1,8 @@
 import axios from "axios";
 
 export default {
-    getbooks: () => {
-        return axios.get("/api/books");
+    getBooks: () => {
+        return axios.get("");
     },
     getSavedBooks: () => {
         return axios.get("/api/books");
