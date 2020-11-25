@@ -1,11 +1,11 @@
 import React from "react";
 
-function Saved() {
+function Header() {
   return (
         <div>
-            <h1>SAVED</h1>
+            <h1>HEADER</h1>
         </div>
     );
 }
 
-export default Saved;
+export default Header;

@@ -10,7 +10,7 @@ app.use([
 ]);
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
+  app.use(express.static("client/build")); 
 }
 
 mongoose.connect(
@@ -22,10 +22,13 @@ mongoose.connect(
 )
 
 // Link API Routes here
+// Load API Routes 
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
+
+// Load React for All Other Requests
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
+// });
 
 app.listen(PORT, () => {
   console.log("🚀  Server server now on port", PORT, "👻 React App on Port 3000");
