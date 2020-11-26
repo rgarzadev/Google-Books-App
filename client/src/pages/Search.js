@@ -5,6 +5,7 @@ import Results from "../components/Results";
 
 
 function Search() {
+    
     const [books, setBooks] = useState([])
     const [search, setSearch] = useState({})
 
@@ -25,7 +26,8 @@ function Search() {
                 let image = book.imageLinks.thumbnail;
                 let link = book.infoLink;
                 let authors = book.authors;
-                book = {title, description, image, link, authors};
+                let saved = false;
+                book = {title, description, image, link, authors, saved};
                 formattedBooks.push(book);
             }
             setBooks(formattedBooks);
@@ -44,7 +46,7 @@ function Search() {
         <div>
             <h1>SEARCH</h1>
             <SearchBox handleSearch={handleInputChange}/>
-            <Results books={books} />
+            <Results books={books}/>
         </div>
     );
 }

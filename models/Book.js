@@ -21,6 +21,10 @@ const bookSchema = new Schema({
     authors: {
         type: [String],
         required: true
+    },
+    saved: {
+        type: Boolean,
+        default: true
     }
 });
 

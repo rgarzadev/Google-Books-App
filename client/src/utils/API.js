@@ -8,9 +8,11 @@ export default {
         return axios.get("/api");
     },
     deleteBook: (id) => {
-        return axios.delete("/api" + id);
+        return axios.delete("/api/" + id);
     },
     saveBook: (bookData) => {
+        // TODO Remove later
+        console.log("bookData.saved: " + bookData.saved);
         return axios.post("/api", bookData);
     }
 }
