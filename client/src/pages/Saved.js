@@ -19,11 +19,29 @@ function Saved() {
         })
         .catch(err => console.log(err));
     };
-  
+
+    // Delete All Books 
+    let deleteBooks = () => {
+        API.deleteAllBooks()  
+        .then(res => {
+            console.log("Books Deleted!");
+            console.log(res.data);
+            if(res.data.deletedCount === books.length){
+                setBooks([]);
+            }
+        })
+        .catch(err => console.log(err));
+      }
+    
+    // Delete a Single Book 
+    let deleteBook = () => {
+            loadBooks();
+      } 
   return (
         <div>
             <h1>Saved Books</h1>
-            <Results books={books} />
+            <button onClick={deleteBooks}>Delete All Books</button>
+            <Results books={books} handleDelete={deleteBook} />
         </div>
     );
 }

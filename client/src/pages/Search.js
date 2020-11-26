@@ -7,17 +7,14 @@ import Results from "../components/Results";
 function Search() {
     
     const [books, setBooks] = useState([])
-    const [search, setSearch] = useState({})
 
     useEffect(() => {
-        loadBooks()
+        //loadBooks()
     }, [])
 
-    let loadBooks = () => {
-        API.getBooks(search)
+    let loadBooks = (searchTerm) => {
+        API.getBooks(searchTerm)
         .then(res => {
-            console.log("Books: ");
-            console.log(res.data.items);
             let formattedBooks = [];
             for(let i = 0; i < res.data.items.length; i++){
                 let book = res.data.items[i].volumeInfo;
@@ -37,8 +34,20 @@ function Search() {
 
     let handleInputChange = (e) => {
         let searchTerm = e.target.value.toLowerCase();
-        setSearch(searchTerm);
-        loadBooks();
+        if(searchTerm.length > 0){
+            loadBooks(searchTerm);
+        } else {
+            setBooks([]);
+        }
+      };
+
+    // Handle a save event 
+    let handleSave = (title) => {
+        // Loop through books state and remove book that matches title 
+        let filteredBooks = books.filter((book) => {
+            return book.title !== title;
+        });
+        setBooks(filteredBooks); 
       };
     
   
@@ -46,7 +55,7 @@ function Search() {
         <div>
             <h1>SEARCH</h1>
             <SearchBox handleSearch={handleInputChange}/>
-            <Results books={books}/>
+            <Results books={books} handleSave={handleSave}/>
         </div>
     );
 }

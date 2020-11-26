@@ -11,8 +11,9 @@ export default {
         return axios.delete("/api/" + id);
     },
     saveBook: (bookData) => {
-        // TODO Remove later
-        console.log("bookData.saved: " + bookData.saved);
         return axios.post("/api", bookData);
+    },
+    deleteAllBooks: () => {
+        return axios.delete("/api/delete/all");
     }
 }

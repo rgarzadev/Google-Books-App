@@ -32,6 +32,15 @@ router.route("/api").post(function(req, res) {
     });
   });
 
+  //delete all books
+  router.route("/api/delete/all").delete(function(req, res) {
+    db.deleteMany({})
+    .then(result => res.json(result))
+    .catch(err => {
+      console.error(err)
+      res.status(400).json(err)
+    });
+  });
 module.exports = router;   
 
 
