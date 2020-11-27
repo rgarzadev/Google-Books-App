@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import API from "../utils/API";
 import Results from "../components/Results";
 
-
 function Saved() {
+    //one state called books.
     const [books, setBooks] = useState([])
 
+    //run this when page/component loads
     useEffect(() => {
         loadBooks()
     }, [])
@@ -13,19 +14,16 @@ function Saved() {
     let loadBooks = () => {
         API.getSavedBooks()
         .then(res => {
-            console.log("Saved Books Returned!");
-            console.log(res.data);
             setBooks(res.data);
         })
         .catch(err => console.log(err));
     };
 
-    // Delete All Books 
+    //delete all books 
     let deleteBooks = () => {
         API.deleteAllBooks()  
         .then(res => {
-            console.log("Books Deleted!");
-            console.log(res.data);
+            //make sure that the number of deleted books match the initial books array size
             if(res.data.deletedCount === books.length){
                 setBooks([]);
             }
@@ -33,10 +31,11 @@ function Saved() {
         .catch(err => console.log(err));
       }
     
-    // Delete a Single Book 
+    //delete a single book 
     let deleteBook = () => {
             loadBooks();
       } 
+      
   return (
         <div>
             <h1>Saved Books</h1>

@@ -10,16 +10,13 @@ const bookSchema = new Schema({
         type: String
     },
     image: {
-        type: String,
-        required: true
+        type: String
     },
     link: {
-        type: String,
-        required: true
+        type: String
     },
     authors: {
-        type: [String],
-        required: true
+        type: [String]
     },
     saved: {
         type: Boolean,

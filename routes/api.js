@@ -43,7 +43,7 @@ router.route("/api").post(function(req, res) {
     });
   });
 
-  // Query Google Books API
+  //query google books API
   router.route("/api/search/:query").get(async function(req, res) {
     let baseURL = "https://www.googleapis.com/books/v1/volumes?q=";
     let query = req.params.query; 
@@ -61,7 +61,4 @@ router.route("/api").post(function(req, res) {
     });
   });
 
-module.exports = router;   
-
-
-
+module.exports = router;

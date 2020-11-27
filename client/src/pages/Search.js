@@ -3,15 +3,18 @@ import API from "../utils/API";
 import SearchBox from "../components/SearchBox";
 import Results from "../components/Results";
 
-
 function Search() {
-    
-    const [books, setBooks] = useState([])
+    //used to delay search when typing
+    let timer = null;
+    //we have one state called books.
+    const [books, setBooks] = useState([]);
 
+    //run this when component is ready. 
     useEffect(() => {
-        //loadBooks()
+        //loadBooks("JavaScript");
     }, [])
 
+    //function that calls the API backend to make a search
     let loadBooks = (searchTerm) => {
         API.getBooks(searchTerm)
         .then(res => {
@@ -27,23 +30,34 @@ function Search() {
                 book = {title, description, image, link, authors, saved};
                 formattedBooks.push(book);
             }
+            //update the book state
             setBooks(formattedBooks);
         })
         .catch(err => console.log(err));
     };
 
+
+    //call this function when user types in a character
     let handleInputChange = (e) => {
-        let searchTerm = e.target.value.toLowerCase();
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+          let searchTerm = e.target.value.toLowerCase();
+          searchBooks(searchTerm);
+        }, 500); 
+      };
+
+    //helper function to load books based on search term
+    let searchBooks = (searchTerm) => {
         if(searchTerm.length > 0){
             loadBooks(searchTerm);
         } else {
             setBooks([]);
         }
-      };
+    }
 
-    // Handle a save event 
+    //handle a save event 
     let handleSave = (title) => {
-        // Loop through books state and remove book that matches title 
+        //loop through books state and remove book that matches title 
         let filteredBooks = books.filter((book) => {
             return book.title !== title;
         });
