@@ -18,7 +18,11 @@ function SingleBook(props) {
   }
 
   let viewBook = () => {
-    window.location.href = book.link;
+    window.open(
+      book.link,
+      '_blank' // <- This is what makes it open in a new window.
+    );
+    //window.location.href = book.link;
   }
 
   let deleteBook = () => {
@@ -38,7 +42,19 @@ function SingleBook(props) {
               : 
               <button onClick={deleteBook}>Delete</button>  
             }
-            <div>{JSON.stringify(book)}</div><br />
+            <h3>{book.title}</h3>
+            <div>{book.description}</ div>
+            <img src={book.image} alt={book.title} />
+            <div>  
+            {book.authors.map((author, index) => {
+                    return (
+                    <span>
+                        {index == book.authors.length - 1 ? author : author + ', ' }
+                    </span>
+                    )
+                })}
+            </div>    
+            <a href={book.link} target='_blank'>Link</a>
         </li>
     );
 }
