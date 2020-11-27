@@ -38,7 +38,7 @@ function SingleBook(props) {
               : 
               <button onClick={deleteBook}>Delete</button>  
             }
-            <span>{book.title}</span>
+            <div>{JSON.stringify(book)}</div><br />
         </li>
     );
 }

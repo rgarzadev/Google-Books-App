@@ -2,7 +2,7 @@ import axios from "axios";
 
 export default {
     getBooks: (query) => {
-        return axios.get(`https://www.googleapis.com/books/v1/volumes?q=${query}&key=AIzaSyApsibtIXP1-tNIxH2bicAYhvx7fIB3J1c`);
+        return axios.get(`/api/search/${query}`);
     },
     getSavedBooks: () => {
         return axios.get("/api");

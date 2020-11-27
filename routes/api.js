@@ -1,3 +1,4 @@
+const fetch = require('node-fetch');
 const db = require("../models/Book");
 const router = require("express").Router();
 
@@ -41,6 +42,25 @@ router.route("/api").post(function(req, res) {
       res.status(400).json(err)
     });
   });
+
+  // Query Google Books API
+  router.route("/api/search/:query").get(async function(req, res) {
+    let baseURL = "https://www.googleapis.com/books/v1/volumes?q=";
+    let query = req.params.query; 
+    let apiKey = process.env.GOOGLE_API_KEY;
+    let apiKeyFull = "&key=" + apiKey;
+    let finalURL = baseURL + query + apiKeyFull;
+    fetch(finalURL)
+    .then(res => res.json())
+    .then(data => {
+       let items = data.items;
+       res.send({ items });
+    })
+    .catch(err => {
+       res.send({"Error": err});
+    });
+  });
+
 module.exports = router;   
 
 
