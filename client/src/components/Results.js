@@ -8,7 +8,7 @@ function Results(props) {
             <ul>
                 {props.books.map((book) => {
                     return (
-                    <div>
+                    <div className="book-card card-body">
                         <SingleBook book={book} handleSave={props.handleSave} handleDelete={props.handleDelete}/>
                     </div>
                     )

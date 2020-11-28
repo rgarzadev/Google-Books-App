@@ -8,13 +8,13 @@ const Footer = (props) => {
       <div className="container">
         <div className="row footer-row">
           <div className="col-4 google-books-link">
-            <a href="https://books.google.com/">GOOGLE BOOKS</a>
+            <a href="https://books.google.com/" target="_blank">GOOGLE BOOKS</a>
           </div>
           <div className="col-4 about-link">
-            <a href="https://books.google.com/intl/en/googlebooks/about/index.html">ABOUT</a>
+            <a href="https://books.google.com/intl/en/googlebooks/about/index.html" target="_blank">ABOUT</a>
           </div>
           <div className="col-4 google-search-link">
-            <a href="https://google.com/">GOOGLE SEARCH</a>
+            <a href="https://books.google.com/intl/en/googlebooks/perspectives/facts.html" target="_blank">FAQ</a>
           </div>
         </div>
       </div>

@@ -13,6 +13,14 @@ body {
   background-color: #ededed;
 }
 
+img {
+  margin-bottom: 6px;
+}
+
+ul {
+  list-style-type: none;
+}
+
 footer {
   background-color: black;
   padding-top: 40px;
@@ -21,8 +29,6 @@ footer {
 }
 
 /* classes */
-
-/* header */
 
 .active.navbar-brand {
   color: pink !important;
@@ -36,102 +42,9 @@ nav a:hover {
   color:pink;
 }
 
-/* profile section */
-
-.profile-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  padding: 8px;
-  border: 1px solid lightgray;
-  border-radius: 4px;
+.btn {
+  margin: 6px;
 }
-
-.profile-img-div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0px;
-}
-
-.profile-img {
-  max-width: 90%;
-}
-
-.profile-text {
-  padding: 20px;
-}
-
-/* skills section */
-
-.skills {
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 20px;
-  padding: 8px;
-  border: 1px solid lightgray;
-  border-radius: 4px;
-  justify-content: center;
-  align-items: center;
-}
-
-.skill-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 8px;
-  border: 1px solid lightgray;
-  border-radius: 4px;
-  text-align: center;
-}
-
-.skill-icon {
-  width: 100px;
-  padding: 10px;
-}
-
-/* projects section */
-
-.portfolio-header {
-  padding: 8px;
-  margin-top: 8px;
-  margin-bottom: 8px;
-  border: 1px solid lightgray;
-  border-radius: 4px;
-}
-
-.project-container {
-  margin-bottom: 10px;
-}
-
-.project-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 8px;
-  border: 1px solid lightgray;
-  border-radius: 4px;
-}
-
-.project-card a,
-.project-p {
-  text-align: center;
-}
-
-.project-card {
-  margin: 4px;
-}
-
-.project-img {
-  max-width: 200px;
-  padding-bottom: 6px;
-}
-
-/* other */
 
 .google-books-link {
   text-align: right;
@@ -147,4 +60,12 @@ nav a:hover {
   text-align: center;
   padding-bottom: 6px;
   padding-top: 6px;
+}
+
+.book-card {
+  display: flex;
+  padding: 8px;
+  margin-bottom: 12px;
+  border: 3px solid grey;
+  border-radius: 8px;
 }

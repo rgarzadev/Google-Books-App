@@ -37,9 +37,9 @@ function Saved() {
       } 
       
   return (
-        <div>
+        <div className="container">
             <h1>Saved Books</h1>
-            <button onClick={deleteBooks}>Delete All Books</button>
+            <button type="button" class="btn btn-outline-primary" onClick={deleteBooks}>Delete Saved Books</button>
             <Results books={books} handleDelete={deleteBook} />
         </div>
     );

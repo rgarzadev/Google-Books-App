@@ -32,16 +32,10 @@ function SingleBook(props) {
 
   return (
         <li>
-            <button onClick={viewBook}>View</button>
-            { !book.saved ?
-              <button onClick={saveBook}>Save</button>
-              : 
-              <button onClick={deleteBook}>Delete</button>  
-            }
             <h3>{book.title}</h3>
-            <div>{book.description}</ div>
+            <div><p>{book.description}</p></ div>
             <img src={book.image} alt={book.title} />
-            <div>  
+            <div>
             {book.authors && book.authors.length > 0 && 
               book.authors.map((author, index) => {
                 return (
@@ -52,7 +46,14 @@ function SingleBook(props) {
               })
             }  
             </div>    
-            <a href={book.link} target='_blank'>Link</a>
+            {/* <a href={book.link} target='_blank'>Link</a> */}
+            <button type="button" class="btn btn-outline-success" onClick={viewBook}>View</button>
+            { !book.saved ?
+              <button type="button" class="btn btn-outline-primary"onClick={saveBook}>Save</button>
+              : 
+              <button type="button" class="btn btn-outline-primary" onClick={deleteBook}>Delete</button>  
+            }
+
         </li>
     );
 }

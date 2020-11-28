@@ -67,9 +67,11 @@ function Search() {
   
   return (
         <div>
-            <h1>SEARCH</h1>
+            <div className="container">
+            <h1>Search Books:</h1>
             <SearchBox handleSearch={handleInputChange}/>
             <Results books={books} handleSave={handleSave}/>
+        </div>
         </div>
     );
 }
